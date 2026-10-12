@@ -19,6 +19,12 @@ public class HelloController {
         response.put("message", "Hello, " + name + "!");
         return response;
     }
-}
 
-// Trigger push 2 to verify Gradle dependency cache restore
+    @GetMapping("/status")
+    public Map<String, Object> getStatus() {
+        Map<String, Object> response = new HashMap<>();
+        response.put("status", "UP");
+        response.put("service", "Spring Boot Gradle CI Cache Demo");
+        return response;
+    }
+}

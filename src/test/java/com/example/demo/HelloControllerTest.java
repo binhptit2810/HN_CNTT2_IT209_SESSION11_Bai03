@@ -32,4 +32,12 @@ public class HelloControllerTest {
                 .andExpect(jsonPath("$.status").value("success"))
                 .andExpect(jsonPath("$.message").value("Hello, Antigravity!"));
     }
+
+    @Test
+    void testGetStatus() throws Exception {
+        mockMvc.perform(get("/api/status"))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.status").value("UP"))
+                .andExpect(jsonPath("$.service").value("Spring Boot Gradle CI Cache Demo"));
+    }
 }
